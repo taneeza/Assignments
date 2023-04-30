@@ -62,7 +62,7 @@ Create a new user in a system using URI: https://reqres.in/api/users Verb: POST 
 
 
 Question:
-What is the response code?
+6. What is the response code?
     {
     "name": "yourname",
     "job": "dreamjob",
@@ -191,12 +191,37 @@ Question:
 15. Get all booking ids using URI: https://restful-booker.herokuapp.com/booking
     Question:
     How many lists can you see in the response body?
+        1
 16. Get details about booking id 23 using URI: https://restful-booker.herokuapp.com/booking/23
     Question:
     What is the response?
+    {
+    "firstname": "John",
+    "lastname": "Smith",
+    "totalprice": 111,
+    "depositpaid": true,
+    "bookingdates": {
+    "checkin": "2018-01-01",
+    "checkout": "2019-01-01"
+    },
+    "additionalneeds": "Breakfast"
+    }
+
 17. Get details about booking id 3 using URI: https://restful-booker.herokuapp.com/booking/3
     Question:
     What is the response?
+    {
+    "firstname": "Jim",
+    "lastname": "Jackson",
+    "totalprice": 125,
+    "depositpaid": false,
+    "bookingdates": {
+    "checkin": "2018-07-17",
+    "checkout": "2022-06-13"
+    },
+    "additionalneeds": "Breakfast"
+
+
 18. Get information about all planets using URI: https://swapi.dev/api/planets
     Question:
     What is the response?
@@ -211,64 +236,88 @@ How many lists can you see in the response body?
     3 list result, people, film
 What is the response?
     ![img_12.png](img_12.png)
-20. Write JSON path for following JSON file:
-    {
-    "studio": {
-    "movie": [
-    {
-    "category": "history",
-    "director": "John",
-    "title": "History",
-    "rating": 6.60
-    },
-    {
-    "category": "comedy",
-    "director": "Paul",
-    "title": "Laugh",
-    "rating": 4.00
-    },
-    {
-    "category": "fiction",
-    "director": "Jack",
-    "title": "Wake",
-    "isbn": "87877676879",
-    "rating": 8.01
-    },
-    {
-    "category": "drama",
-    "director": "Edward",
-    "title": "Wuthering Heights",
-    "isbn": "8754543578",
-    "rating": 4.50
-    }
-    ],
-    "music": {
-    "song": "pale",
-    "rate": 5.4
-    }
-    },
-    "ranking": 20
-    }
-    a. To retrieve all direct properties of the studio object
-    b. To find out the music’s song
-    c. To find the rating of all items in the studio
-    d. To retrieve information on all movies
-    e. To find out the titles of all movies
-    f. To retrieve the titles of all movies by Jack
-    g. To retrieve the category of the last movie
-    i. To retrieve all movies that have the isbn property
+    20. Write JSON path for following JSON file:
+        {
+        "studio": {
+        "movie": [
+        {
+        "category": "history",
+        "director": "John",
+        "title": "History",
+        "rating": 6.60
+        },
+        {
+        "category": "comedy",
+        "director": "Paul",
+        "title": "Laugh",
+        "rating": 4.00
+        },
+        {
+        "category": "fiction",
+        "director": "Jack",
+        "title": "Wake",
+        "isbn": "87877676879",
+        "rating": 8.01
+        },
+        {
+        "category": "drama",
+        "director": "Edward",
+        "title": "Wuthering Heights",
+        "isbn": "8754543578",
+        "rating": 4.50
+        }
+        ],
+        "music": {
+        "song": "pale",
+        "rate": 5.4
+        }
+        },
+        "ranking": 20
+        }
+        a. To retrieve all direct properties of the studio object
+        b. To find out the music’s song
+            studio.music.song
+        c. To find the rating of all items in the studio
+        studio.movie[0].rating, studio.movie[1].rating, studio.movie[2].rating, studio.movie[2].rating
+            
+        d. To retrieve information on all movies
+        studio.movie
+        e. To find out the titles of all movies
+        studio.movie[0].title,studio.movie[1].title,studio.movie[2].title,
+        f. To retrieve the titles of all movies by Jack
+        g. To retrieve the category of the last movie
+            studio.movie[3].category
+        i. To retrieve all movies that have the isbn property
 
 
-Get information about all employess using URI: http://dummy.restapiexample.com/api/v1/employees
+21. Get information about all employess using URI: http://dummy.restapiexample.com/api/v1/employees
 Question:
 How many lists can you see in the response body?
+        1
 What is the response?
+![img_13.png](img_13.png)
 What are the available property(Key) names in the response body?
+    "status"    "data", "id",  "employee_name ", employee_salary”, "employee_age",  "profile_image" ,"message"
+
 Make a list of all attributes and write the data types.
-Get a single employee data using URI: http://dummy.restapiexample.com/api/v1/employee/3
+"Status" string,
+"Data" array,
+"Id" integer,
+"employee_name " string,
+Employee_salary” integer,
+"Employee_age" integer,  
+"profile_image" string ,
+"message" string
+
+
+
+22. Get a single employee data using URI: http://dummy.restapiexample.com/api/v1/employee/3
 Question:
+![img_14.png](img_14.png)
 How many data you can see in response body?
-What is the response status? 23.Create a new employee in a system by using URI: http://dummy.restapiexample.com/api/v1/create Verb: POST Request Body:
+What is the response status? 
+        200 ok
+23. 23.Create a new employee in a system by using URI: http://dummy.restapiexample.com/api/v1/create Verb: POST Request Body:
 {
 "name":"your name",
 "salary":"123",
@@ -276,14 +325,20 @@ What is the response status? 23.Create a new employee in a system by using URI: 
 }
 
 Question:
-What is the response?
+![img_15.png](img_15.png)
+What is the response? 
+    200 ok
 can you see "id" property in the response? if Yes, note the "id" value.
-Delete an employee record whose employee id in 2 by using URI http://dummy.restapiexample.com/api/v1/delete/2
+Yes. “id” : 3367
+24. Delete an employee record whose employee id in 2 by using URI http://dummy.restapiexample.com/api/v1/delete/2
 Question:
-What is the response?
+    ![img_16.png](img_16.png)
+What is the response? 
+    200 ok
 How many employees are now in the employees list? http://dummy.restapiexample.com/api/v1/employees
-Can you see the deleted employee record?
-Register a user by using
+Can you see the deleted employee record? 
+    yes I can
+25. Register a user by using
 URI: https://reqres.in/api/register Verb: POST Request Body:
 {
 "email": "john.jack@example.com",
@@ -291,24 +346,40 @@ URI: https://reqres.in/api/register Verb: POST Request Body:
 }
 
 Question:
-What is the response?
+    ![img_17.png](img_17.png)
+What is the response? 
+    400 bad rquest
 What are the available property(Key) names in the response body?
-Get an user Using URL https://reqres.in/api/unknown/2
-Question:
+"error": "Note: Only defined users succeed registration"
+26. Get an user Using URL https://reqres.in/api/unknown/2
+Question: 
+
+![img_18.png](img_18.png)
 What is the response?
-A simple health check endpoint to confirm whether the API is up and running using https://restful-booker.herokuapp.com/ping
+    200 ok
+27. A simple health check endpoint to confirm whether the API is up and running using https://restful-booker.herokuapp.com/ping
 Question:
-What is the response?
-Get information using Delayed Response using URI: https://reqres.in/api/users?delay=3
+![img_19.png](img_19.png)
+    
+What is the response? 
+    201 created
+28. Get information using Delayed Response using URI: https://reqres.in/api/users?delay=3
 Question:
-What is the response?
-How many seconds delay to respond?
-Get information about vehicles using URL https://swapi.dev/api/vehicles/schema/
+    ![img_20.png](img_20.png)
+What is the response?  200 ok
+How many seconds delay to respond? 3.68 s
+29. Get information about vehicles using URL https://swapi.dev/api/vehicles/schema/
 Question:
+        ![img_21.png](img_21.png)
 What type of response it is?
-What is response status code?
-Get information about starships using URL https://swapi.dev/api/starships/schema/
+    json type
+What is response status code? 404 NOT FOUND
+30. Get information about starships using URL https://swapi.dev/api/starships/schema/
 Question:
-What type of response it is?
-Write down the response status code.
+    ![img_22.png](img_22.png)
+What type of response it is? 
+    Json Type
+Write down the response status code. 
+404 NOT FOUND
 What are the available property(Key) names in the response body?
+    "detail": "Not found"
